@@ -22,14 +22,15 @@ jobs:
       - name: Build Android Release
         run: |
           cd android && chmod +x ./gradlew && ./gradlew assembleRelease
-      - name: setup ruby
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
-          bundler-cache: true 
+          bundler-cache: true
+      - name: install fir
+        run: gem install fir-cli
       - name: upload fir    
-        run: |
-           gem install fir-cli && fir login ${{ secrets.FIRTOKEN }} && fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo 
+        run: fir login ${{ secrets.FIRTOKEN }}
+      - run: fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
