@@ -18,10 +18,18 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install npm dependencies
         run: |
-          npm install &&  gem install fir-cli && fir login ${{ secrets.FIRTOKEN }}
+          npm install
       - name: Build Android Release
         run: |
-          cd android && chmod +x ./gradlew && ./gradlew assembleRelease && fir publish android/app/build/outputs/apk/release/app-release.apk
+          cd android && chmod +x ./gradlew && ./gradlew assembleRelease
+      - name: setup ruby
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true 
+      - name: upload fir    
+        run: |
+           gem install fir-cli && fir login ${{ secrets.FIRTOKEN }} && fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo 
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
