@@ -27,3 +27,9 @@ jobs:
         with:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
+      - name: Install fir-cli
+          run: gem install fir-cli
+      - name: Upload to Fir.im
+          run: fir login ${{ secrets.FIRTOKEN }}
+      - run: fir publish app/build/outputs/apk/release/app-release.apk
+
