@@ -8,11 +8,6 @@ import { useUpdateAtom } from 'jotai/utils';
 import Animated, { withSpring, useSharedValue, useAnimatedStyle } from 'react-native-reanimated';
 import { createModel } from 'hox';
 
-import Stack from './stacks';
-import { authAtom } from 'modules/auth/authService';
-import Iconfont from 'components/Iconfont';
-import { theme, darkTheme } from './theme';
-
 enableScreens();
 // helpers.registerCustomIcon(Iconfont);s
 function useCounter() {
@@ -27,11 +22,7 @@ function useCounter() {
 }
 const useCounterModel = createModel(useCounter);
 export default function App() {
-
-  const updateAuth = useUpdateAtom(authAtom);
-  const [dark] = useState(false);
-
-    const counter = useCounterModel();
+  const counter = useCounterModel();
 
   useEffect(() => {
     const init = async () => {
@@ -43,15 +34,6 @@ export default function App() {
     });
   }, []);
 
-  /**
-   * 全局的错误处理，当接口返回的是登录失败时自动登出进入登录页面重新登录
-   * @param error
-   */
-  const handleError = (error: Error) => {
-    if (error.message === 'LoginFailure') {
-      updateAuth({ signedIn: false });
-    }
-  };
   const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => {
@@ -68,20 +50,4 @@ export default function App() {
       <Text>{counter.count}</Text>
     </View>
   );
-}
-
-{
-  /* <SafeAreaProvider>
-<SWRConfig
-  value={{
-    onError: handleError,
-  }}
->
-  <ThemeProvider theme={dark ? darkTheme : theme}>
-    <NavigationContainer>
-      <Stack />
-    </NavigationContainer>
-  </ThemeProvider>
-</SWRConfig>
-</SafeAreaProvider> */
 }
