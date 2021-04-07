@@ -6,6 +6,7 @@
 第三方UI组件库使用 react-native-ui-library（该组件库是目前开源的最完善并保持更新的组件库）；
 状态管理使用简洁易用的 hox（只有一个 api 十分简单足以应对大部分开发场景）。
 完全采用 ts 语法， 全部为函数式组件使用 react hooks 写法。图标及svg资源管理使用 react-native-iconfont-cli。
+集成了 github action 进行 android 的打包并生成apk产物文件和上传至 [fir.im](https://www.betaqr.com/apps)
 
 ## 主要技术栈
 
