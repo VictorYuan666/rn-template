@@ -1,17 +1,23 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
+import { View, Text } from 'react-native';
 
-function Login({navigation}) {
-  const {showSplash, token} = useSelector((state) => state.app);
-  const dispatch = useDispatch();
-  function commit() {
-    dispatch.app.update({token: 'xxx'});
-  }
+function Login() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text onPress={commit}>Login Screen</Text>
-      <Text onPress={() => navigation.push('DetailModal')}>modal Screen</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text
+        onPress={() => {
+          console.log(123);
+        }}
+      >
+        Login Screen
+      </Text>
+      <Text
+        onPress={() => {
+          // navigation.push('DetailModal')
+        }}
+      >
+        modal Screen
+      </Text>
     </View>
   );
 }

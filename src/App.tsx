@@ -1,15 +1,18 @@
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button } from 'react-native';
-import { enableScreens } from 'react-native-screens';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
+
+import { Login } from '@/pages/auth';
+import Navigation from '@/navigation';
 import RNBootSplash from 'react-native-bootsplash';
-import { useUpdateAtom } from 'jotai/utils';
-import Animated, { withSpring, useSharedValue, useAnimatedStyle } from 'react-native-reanimated';
+import { RootSiblingParent } from 'react-native-root-siblings';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { UseRequestProvider } from 'ahooks';
+import axios from 'axios';
 import { createModel } from 'hox';
+import { enableScreens } from 'react-native-screens';
 
 enableScreens();
-// helpers.registerCustomIcon(Iconfont);s
+
 function useCounter() {
   const [count, setCount] = useState(0);
   const decrement = () => setCount(count - 1);
@@ -20,6 +23,7 @@ function useCounter() {
     increment,
   };
 }
+
 const useCounterModel = createModel(useCounter);
 export default function App() {
   const counter = useCounterModel();
@@ -43,11 +47,20 @@ export default function App() {
   });
 
   return (
-    <View>
-      <Animated.View style={[{ width: 100, height: 100, backgroundColor: 'red' }, animatedStyles]} />
-      <Button onPress={() => (offset.value = withSpring(Math.random()))} title="Move" />
-      <Button onPress={() => counter.increment()} title="+" />
-      <Text>{counter.count}</Text>
-    </View>
+    <RootSiblingParent>
+    <SafeAreaProvider>
+      <UseRequestProvider
+        value={{
+          refreshOnWindowFocus: true,
+          requestMethod: async (param) => {
+            console.log('param', param);
+            return axios(param);
+          },
+        }}
+      >
+        <Navigation />
+      </UseRequestProvider>
+    </SafeAreaProvider>
+    </RootSiblingParent>
   );
 }

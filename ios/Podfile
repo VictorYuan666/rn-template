@@ -9,12 +9,12 @@ target 'rnTemplate' do
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => false
+    :hermes_enabled => true
   )
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  # pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+  # pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
   target 'rnTemplateTests' do
     inherit! :complete

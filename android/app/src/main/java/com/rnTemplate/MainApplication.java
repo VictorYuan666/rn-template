@@ -5,6 +5,7 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.bridge.JSIModulePackage;
+import com.rnTemplate.JSIPackageList;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -39,7 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
         // Add this method here!
         @Override
         protected JSIModulePackage getJSIModulePackage() {
-          return new ReanimatedJSIModulePackage();
+          return new JSIPackageList();
         }
 
 
