@@ -30,7 +30,7 @@ jobs:
         run: gem install fir-cli
       - name: upload fir    
         run: fir login ${{ secrets.FIRTOKEN }}
-      - run: fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo
+      - run: fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo --dingtalk-access-token=${{secrets.DINGTALK_TOKEN}}
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
