@@ -28,11 +28,11 @@ jobs:
           bundler-cache: true
       - name: install fir
         run: gem install fir-cli
-      - name: upload fir    
-        run: fir login ${{ secrets.FIRTOKEN }}
-      - run: fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo --dingtalk-access-token=${{secrets.DINGTALK_TOKEN}}
+      - name: upload fir
+      - run: fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo --token=${{ secrets.FIRTOKEN }} --dingtalk-access-token=${{ secrets.DINGTALK_TOKEN }} --dingtalk-custom-message=应用发布
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
+
