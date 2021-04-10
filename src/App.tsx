@@ -13,9 +13,7 @@ enableScreens();
 
 export default function App() {
   useEffect(() => {
-    const init = async () => {
-      // …do multiple sync or async tasks
-    };
+    const init = async () => {};
 
     init().finally(async () => {
       await RNBootSplash.hide({ fade: true });
