@@ -22,8 +22,8 @@
     "e2e:ios:build": "detox build -c ios",
     "e2e:android:test": "detox test -c android",
     "e2e:android:build": "detox build -c android",
-    "set:icon": "react-native set-icon --path ./assets/app_icon.png --background \"#FFFFFF\"",
-    "set:splash": "yarn react-native generate-bootsplash assets/bootsplash_icon.png --background-color=ffffff --logo-width=100",
+    "set:icon": "react-native set-icon --path ./assets/logo.png --background \"#FFFFFF\"",
+    "set:splash": "yarn react-native generate-bootsplash assets/bootsplash_logo.png --background-color=ffffff --logo-width=100",
     "set": "run-p set:*",
     "release": "standard-version -r 0.0.1"
   },

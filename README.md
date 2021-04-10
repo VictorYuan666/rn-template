@@ -63,7 +63,7 @@
 
 ## 应用图标启动页图标替换
 
-1. 替换根目录 assets 文件夹下的 app_icon.png 和 bootsplash_icon.png 为自己的应用图标启动页图标
+1. 替换根目录 assets 文件夹下的 logo.png 和 bootsplash_logo.png 为自己的应用图标启动页图标
 2. 执行 yarn set
 
 https://github.com/zoontek/react-native-bootsplash
