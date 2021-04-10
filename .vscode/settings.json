@@ -1,4 +1,3 @@
 {
-  "svn.ignoreMissingSvnWarning": true,
-  "todo-tree.tree.scanMode": "workspace only"
+  "react-i18n.i18nPaths": "/Users/yuanxiaowei/work/rn-template/src/i18n,/Users/yuanxiaowei/work/rn-template/ios/Pods/Flipper-Folly/folly/lang,/Users/yuanxiaowei/work/rn-template/ios/Pods/RCT-Folly/folly/lang,/Users/yuanxiaowei/work/rn-template/ios/Pods/boost-for-react-native/boost/locale,/Users/yuanxiaowei/work/rn-template/ios/Pods/Headers/Public/Flipper-Folly/folly/lang,/Users/yuanxiaowei/work/rn-template/ios/Pods/Headers/Public/RCT-Folly/folly/lang,/Users/yuanxiaowei/work/rn-template/ios/Pods/Headers/Private/Flipper-Folly/folly/lang,/Users/yuanxiaowei/work/rn-template/ios/Pods/Headers/Private/RCT-Folly/folly/lang"
 }

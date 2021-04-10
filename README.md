@@ -2,11 +2,7 @@
 
 [![react-native-android-build-apk](https://github.com/VictorYuan666/rn-template/actions/workflows/react-native-android-build-apk.yml/badge.svg?branch=main)](https://github.com/VictorYuan666/rn-template/actions/workflows/react-native-android-build-apk.yml)
 
-2021最新版 react native 模板项目，使用 react-navigation 做路由；
-第三方UI组件库使用 react-native-ui-library（该组件库是目前开源的最完善并保持更新的组件库）；
-状态管理使用简洁易用的 hox（只有一个 api 十分简单足以应对大部分开发场景）。
-完全采用 ts 语法， 全部为函数式组件使用 react hooks 写法。图标及svg资源管理使用 react-native-iconfont-cli。
-集成了 github action 进行 android 的打包并生成apk产物文件和上传至 [fir.im](https://www.betaqr.com/apps)
+2021最新版 react native 模板项目，使用 react-navigation 做路由；第三方UI组件库使 react-native-ui-library（该组件库是目前开源的最完善并保持更新的组件库）；状态管理使用简洁易用的 hox（只有一个 api 十分简单足以应对大部分开发场景）。完全采用 ts 语法， 全部为函数式组件使用 react hooks 写法。图标及svg资源管理使用react-native-iconfont-cli。集成了 github action 进行 android 的打包并生成apk产物文件和上传至[fir.im](https://www.betaqr.com/apps)
 
 **ToDo**
 
@@ -28,7 +24,6 @@
 
 ## 原生依赖
 
-- @react-native-async-storage/async-storage
 - @react-native-community/blur
 - @react-native-community/datetimepicker
 - @react-native-community/masked-view
@@ -46,6 +41,7 @@
 - react-native-safe-area-context
 - react-native-screens
 - react-native-svg
+- react-native-mmkv
 
 ## 开发规范
 
@@ -65,11 +61,19 @@
 1. 配置 iconfont.cn 中项目生成 Symbol 链接到项目根目录下的 iconfont.json 文件中的 symbol_url
 2. 执行yarn icon 会生成所有图标组件到 src/assets/icons 目录下
 
+## 应用图标启动页图标替换
+
+1. 替换根目录 assets 文件夹下的 app_icon.png 和 bootsplash_icon.png 为自己的应用图标启动页图标
+2. 执行 yarn set
+
+https://github.com/zoontek/react-native-bootsplash
+https://github.com/bamlab/react-native-make/blob/master/docs/set-icon.md
+
 ## 使用
 
 1. 搭建 RN 开发环境
 2. 克隆本项目
-3. 使用 react-native-rename 命令修改项目名称及包名
-4. 安装 npm 依赖 
+3. 使用 npx react-native-rename <newName> -b <bundleIdentifier> 命令修改项目名称及包名
+4. 安装 npm 依赖 yarn
 5. 安装 ios 依赖 cd ios && pod install
 6. yarn ios 编译完成后即可开始开发
