@@ -15,7 +15,7 @@
     "clean:android": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && cd ..",
     "clean:ios": "rm -rf ios/build",
     "clean": "run-p clean:*",
-    "commit": "git-cz",
+    "cz": "git-cz",
     "pod": "cd ios && pod install --repo-update && cd ..",
     "test": "jest --passWithNoTests --detectOpenHandles --watch",
     "e2e:ios:test": "detox test -c ios",
@@ -24,6 +24,7 @@
     "e2e:android:build": "detox build -c android",
     "set:icon": "react-native set-icon --path ./assets/app_icon.png --background \"#FFFFFF\"",
     "set:splash": "yarn react-native generate-bootsplash assets/bootsplash_icon.png --background-color=ffffff --logo-width=100",
+    "set": "run-p set:*",
     "release": "standard-version -r 0.0.1"
   },
   "config": {
