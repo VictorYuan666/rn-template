@@ -25,23 +25,19 @@
     "set:icon": "react-native set-icon --path ./assets/logo.png --background \"#FFFFFF\"",
     "set:splash": "yarn react-native generate-bootsplash assets/bootsplash_logo.png --background-color=ffffff --logo-width=100",
     "set": "run-p set:*",
-    "release": "standard-version -r 0.0.1"
+    "release": "standard-version -r 0.0.1",
+    "prepare": "husky install"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog-emoji"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run tsc && npm run eslint:fix && npm run lint:fix && lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "git add ."
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "dependencies": {
     "@react-native-community/blur": "^3.6.0",

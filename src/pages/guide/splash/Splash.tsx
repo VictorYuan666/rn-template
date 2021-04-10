@@ -1,35 +1,26 @@
-import { Button, Text, TextInput, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
-import { TextField, Toast } from 'react-native-ui-lib';
 
 // import KeyEvent from 'react-native-keyevent';
 import { MMKV } from 'react-native-mmkv';
 import type { ParamListBase } from '@react-navigation/native';
 import RootSiblings from 'react-native-root-siblings';
 import type { StackScreenProps } from '@react-navigation/stack';
+import { Toast } from 'react-native-ui-lib';
 import { get } from '@/utils';
 import { useAppModel } from '@/models';
 import { useRequest } from 'ahooks';
 import { useTranslation } from 'react-i18next';
 
-let tempKey = '';
+// const tempKey = '';
+
 function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   const { t, i18n } = useTranslation();
   const { data } = useRequest(() => get('electricity/displayPortInfo', { params: 'center' }), {
     // requestMethod: param => axios(param),
   });
 
-  function test() {
-    console.log('keyboard');
-    // Keyboard.dismiss();
-    // try {
-    //   const a = await get('electricity/displayPortInfos', { params: 'center' });
-    //   console.log('!!!!', a);
-    // } catch (error) {
-    //   console.log('!!!err', error);
-    // }
-  }
-  const { app, setApp } = useAppModel();
+  const { app } = useAppModel();
   useEffect(() => {
     // KeyEvent.onKeyDownListener((keyEvent: any) => {
     //   console.log(`Key: ${keyEvent.keyCode}`);
@@ -45,8 +36,9 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   }, []);
 
   const addSibling = () => {
+    // setApp({ b: 1 });
     MMKV.set('username', 'Marc');
-    const username = MMKV.getString('username');
+    // const username = MMKV.getString('username');
 
     const sibling = new RootSiblings(
       (
@@ -65,6 +57,7 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button onPress={addSibling} title="Add" />
       <Text>{JSON.stringify(app)}</Text>
+      <Text>{JSON.stringify(data)}</Text>
       <Text>语言：{t('lng')}</Text>
       <Button
         onPress={() => {
