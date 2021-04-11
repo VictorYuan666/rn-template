@@ -11,12 +11,16 @@ jobs:
       
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            ~/.npm
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
           
       - name: Install npm dependencies
-        run: yarn
-          
+        run: npm i
+        
       - name: Cache Gradle Wrapper
         uses: actions/cache@v2
         with:
