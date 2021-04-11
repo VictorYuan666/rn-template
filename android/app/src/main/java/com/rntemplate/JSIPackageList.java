@@ -1,4 +1,4 @@
-package com.rnTemplate;
+package com.rntemplate;
 
 import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JavaScriptContextHolder;

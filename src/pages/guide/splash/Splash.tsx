@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 // import KeyEvent from 'react-native-keyevent';
 import { MMKV } from 'react-native-mmkv';
 import type { ParamListBase } from '@react-navigation/native';
+import RNBugly from 'rn-bugly';
 import RootSiblings from 'react-native-root-siblings';
 import type { StackScreenProps } from '@react-navigation/stack';
 import { Toast } from 'react-native-ui-lib';
@@ -36,6 +37,14 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   }, []);
 
   const addSibling = () => {
+    RNBugly.postException({
+      errorMsg: 'login error',
+      stack: 'sadasdasd\nzxzxsds',
+      extraInfo: {
+        userInfo: 'test',
+        password: '12345',
+      },
+    });
     // setApp({ b: 1 });
     MMKV.set('username', 'Marc');
     // const username = MMKV.getString('username');

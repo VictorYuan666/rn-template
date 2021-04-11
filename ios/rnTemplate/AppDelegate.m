@@ -4,7 +4,9 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
-#import "RNBootSplash.h" // <- add the header import
+#import "RNBootSplash.h" 
+#import <Bugly/Bugly.h>
+#import "ReactNativeConfig.h"
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -51,7 +53,8 @@ static void InitializeFlipper(UIApplication *application) {
   [self.window makeKeyAndVisible];
 
   [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView]; // <- initialization using the storyboard file name
-  
+//  NSString *buglyKey = [ReactNativeConfig envFor:@"BUGLY_APP_ID_IOS"];
+  [Bugly startWithAppId:[ReactNativeConfig envFor:@"BUGLY_APP_ID_IOS"]];
   return YES;
 }
 

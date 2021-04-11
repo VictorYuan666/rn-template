@@ -83,7 +83,7 @@ project.ext.react = [
 
 apply from: "../../node_modules/react-native/react.gradle"
 // apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
-
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -138,6 +138,11 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue "string", "build_config_package", "com.rntemplate"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a' // 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     splits {
         abi {
@@ -167,6 +172,13 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+    }
+
+    packagingOptions {
+        pickFirst "lib/armeabi-v7a/libc++_shared.so"
+//        pickFirst "lib/arm64-v8a/libc++_shared.so"
+//        pickFirst "lib/x86/libc++_shared.so"
+//        pickFirst "lib/x86_64/libc++_shared.so"
     }
 
     // applicationVariants are e.g. debug, release
