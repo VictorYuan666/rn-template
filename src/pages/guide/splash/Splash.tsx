@@ -8,6 +8,7 @@ import RNBugly from 'rn-bugly';
 import RootSiblings from 'react-native-root-siblings';
 import type { StackScreenProps } from '@react-navigation/stack';
 import { Toast } from 'react-native-ui-lib';
+import axios from 'axios';
 import { get } from '@/utils';
 import { useAppModel } from '@/models';
 import { useRequest } from 'ahooks';
@@ -48,6 +49,9 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
     // setApp({ b: 1 });
     MMKV.set('username', 'Marc');
     // const username = MMKV.getString('username');
+    axios.get('https://baidu.com').then((succ) => {
+      alert(JSON.stringify(succ));
+    });
 
     const sibling = new RootSiblings(
       (

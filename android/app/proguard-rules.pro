@@ -9,3 +9,5 @@
 
 # Add any project specific keep options here:
 -keep class com.facebook.react.turbomodule.** { *; }
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}

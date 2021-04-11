@@ -11,9 +11,22 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
+          - name: Cache Gradle Wrapper
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-caches-
       - name: Build Android Release
         run: |
-          cd android && chmod +x ./gradlew && ./gradlew assembleRelease
+          cd android && chmod +x ./gradlew && ./gradlew assembleRelease --no-daemon
       - name: Sign App Bundle
         id: sign_app
         uses: r0adkll/sign-android-release@v1
@@ -36,4 +49,3 @@ jobs:
         with:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
-
