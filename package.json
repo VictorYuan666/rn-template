@@ -1,6 +1,6 @@
 {
   "name": "rn-template",
-  "version": null,
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android:shake": "adb shell input keyevent 82",
@@ -25,7 +25,7 @@
     "set:icon": "react-native set-icon --path ./assets/logo.png --background \"#FFFFFF\"",
     "set:splash": "yarn react-native generate-bootsplash assets/bootsplash_logo.png --background-color=ffffff --logo-width=100",
     "set": "run-p set:*",
-    "release": "standard-version -r 0.0.1",
+    "release": "standard-version",
     "prepare": "husky install"
   },
   "config": {
