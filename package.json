@@ -1,6 +1,6 @@
 {
   "name": "rn-template",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "android:shake": "adb shell input keyevent 82",
