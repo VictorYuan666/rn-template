@@ -36,6 +36,11 @@ jobs:
           alias: ${{ secrets.ANDROID_SIGNING_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_SIGNING_STORE_PASSWORD }}
           keyPassword: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
@@ -44,8 +49,3 @@ jobs:
         run: gem install fir-cli
       - name: upload fir
         run: fir publish android/app/build/outputs/apk/release/app-release.apk --oversea_turbo --token=${{ secrets.FIRTOKEN }} --dingtalk-access-token=${{ secrets.DINGTALK_TOKEN }}
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apk
-          path: android/app/build/outputs/apk/release/

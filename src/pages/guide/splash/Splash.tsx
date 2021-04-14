@@ -18,9 +18,6 @@ import { useTranslation } from 'react-i18next';
 
 function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   const { t, i18n } = useTranslation();
-  const { data } = useRequest(() => get('electricity/displayPortInfo', { params: 'center' }), {
-    // requestMethod: param => axios(param),
-  });
 
   const { app } = useAppModel();
   useEffect(() => {
@@ -38,14 +35,6 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   }, []);
 
   const addSibling = () => {
-    RNBugly.postException({
-      errorMsg: 'login error',
-      stack: 'sadasdasd\nzxzxsds',
-      extraInfo: {
-        userInfo: 'test',
-        password: '12345',
-      },
-    });
     // setApp({ b: 1 });
     MMKV.set('username', 'Marc');
     // const username = MMKV.getString('username');
@@ -70,8 +59,7 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button onPress={addSibling} title="Add" />
       <Text>{JSON.stringify(app)}</Text>
-      <Text>{JSON.stringify(data)}</Text>
-      <Text>语言：{t('lng')}</Text>
+      <Text testID="signIn">语言：{t('lng')}</Text>
       <Button
         onPress={() => {
           i18n.changeLanguage(i18n.language === 'en' ? 'zh' : 'en');

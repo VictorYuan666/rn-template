@@ -3,8 +3,8 @@
   "runnerConfig": "e2e/config.json",
   "configurations": {
     "ios": {
-      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/rnTemplate.app",
-      "build": "xcodebuild -workspace ios/rnTemplate.xcworkspace -configuration Release -scheme rnTemplate -sdk iphonesimulator14.2 -derivedDataPath ios/build -arch x86_64",
+      "binaryPath": "ios/Build/Products/Debug-iphonesimulator/rnTemplate.app",
+      "build": "xcodebuild -workspace ios/rnTemplate.xcworkspace -configuration Debug -scheme rnTemplate -sdk iphonesimulator14.4 -derivedDataPath ios/build -arch x86_64",
       "type": "ios.simulator",
       "device": {
         "type": "iPhone 12"
