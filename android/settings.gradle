@@ -1,7 +1,7 @@
 rootProject.name = 'rnTemplate'
 
-include ':react-native-mmkv'
-project(':react-native-mmkv').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-mmkv/android/')
+// include ':react-native-mmkv'
+// project(':react-native-mmkv').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-mmkv/android/')
 
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
