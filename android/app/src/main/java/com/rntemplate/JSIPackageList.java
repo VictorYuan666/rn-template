@@ -14,7 +14,7 @@ public class JSIPackageList extends ReanimatedJSIModulePackage {
   @Override
   public List<JSIModuleSpec> getJSIModules(ReactApplicationContext reactApplicationContext, JavaScriptContextHolder jsContext) {
     super.getJSIModules(reactApplicationContext, jsContext);
-    MmkvModule.install(jsContext, reactApplicationContext.getFilesDir().getAbsolutePath() + "/mmkv");
+//    MmkvModule.install(jsContext, reactApplicationContext.getFilesDir().getAbsolutePath() + "/mmkv");
     return Collections.emptyList();
   }
 }
