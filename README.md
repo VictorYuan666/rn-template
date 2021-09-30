@@ -43,7 +43,6 @@
 - react-native-safe-area-context
 - react-native-screens
 - react-native-svg
-- react-native-mmkv
 
 ## 开发规范
 
