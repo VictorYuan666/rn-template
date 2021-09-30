@@ -9,7 +9,7 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.reactlibrary.bugly.RNBuglyModule;
+//import com.reactlibrary.bugly.RNBuglyModule;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -58,7 +58,7 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
 
-    RNBuglyModule.initWithoutAutoCheckUpgrade(getApplicationContext(), BuildConfig.BUGLY_APP_ID_ANDROID , false);
+//    RNBuglyModule.initWithoutAutoCheckUpgrade(getApplicationContext(), BuildConfig.BUGLY_APP_ID_ANDROID , false);
   }
 
   /**

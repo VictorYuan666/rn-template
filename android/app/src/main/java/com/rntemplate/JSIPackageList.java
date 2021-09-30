@@ -4,7 +4,7 @@ import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JavaScriptContextHolder;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
-import com.reactnativemmkv.MmkvModule;
+//import com.reactnativemmkv.MmkvModule;
 
 import java.util.Collections;
 import java.util.List;
