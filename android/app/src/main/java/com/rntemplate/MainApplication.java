@@ -10,6 +10,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 //import com.reactlibrary.bugly.RNBuglyModule;
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -38,13 +39,10 @@ public class MainApplication extends Application implements ReactApplication {
           return "index";
         }
 
-        // Add this method here!
-//        @Override
-//        protected JSIModulePackage getJSIModulePackage() {
-//          return new JSIPackageList();
-//        }
-
-
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+            return new ReanimatedJSIModulePackage(); // <- add
+        }
       };
 
   @Override
