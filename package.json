@@ -35,9 +35,9 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
+      "eslint --fix",
       "git add ."
     ],
-    "*.js": "eslint --cache --fix"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.9",
