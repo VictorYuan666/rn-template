@@ -60,7 +60,7 @@ jobs:
         run: gem install fir-cli
 
       - name: upload fir
-        run: fir publish android/app/build/outputs/apk/release/app-release-signed.apk --oversea_turbo --token=${{ secrets.FIRTOKEN }} --dingtalk-access-token=${{ secrets.DINGTALK_TOKEN }} --dingtalk-custom-message=${{ github.event.head_commit.message }} --changelog=${{ github.event.head_commit.message }}
+        run: fir publish android/app/build/outputs/apk/release/app-release-signed.apk --oversea_turbo --token=${{ secrets.FIRTOKEN }} --dingtalk-access-token=${{ secrets.DINGTALK_TOKEN }} --dingtalk-custom-message="${{ github.event.head_commit.message }}" --changelog="${{ github.event.head_commit.message }}"
 
       - name: Remove old artifacts
         uses: c-hive/gha-remove-artifacts@v1
