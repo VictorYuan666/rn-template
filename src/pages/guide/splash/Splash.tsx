@@ -1,43 +1,20 @@
 import { Button, Text, View } from 'react-native';
-import React, { useEffect } from 'react';
+import React from 'react';
 
-// import KeyEvent from 'react-native-keyevent';
-import { MMKV } from 'react-native-mmkv';
 import type { ParamListBase } from '@react-navigation/native';
-import RNBugly from 'rn-bugly';
 import RootSiblings from 'react-native-root-siblings';
 import type { StackScreenProps } from '@react-navigation/stack';
 import { Toast } from 'react-native-ui-lib';
 import axios from 'axios';
-import { get } from '@/utils';
 import { useAppModel } from '@/models';
-import { useRequest } from 'ahooks';
 import { useTranslation } from 'react-i18next';
-
-// const tempKey = '';
 
 function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   const { t, i18n } = useTranslation();
 
   const { app } = useAppModel();
-  useEffect(() => {
-    // KeyEvent.onKeyDownListener((keyEvent: any) => {
-    //   console.log(`Key: ${keyEvent.keyCode}`);
-    //   if (keyEvent.keyCode === 73) {
-    //     alert(tempKey);
-    //     console.log(tempKey);
-    //     setApp({ a: tempKey });
-    //     tempKey = '';
-    //   } else {
-    //     tempKey += keyEvent.pressedKey;
-    //   }
-    // });
-  }, []);
 
   const addSibling = () => {
-    // setApp({ b: 1 });
-    MMKV.set('username', 'Marc');
-    // const username = MMKV.getString('username');
     axios.get('https://baidu.com').then((succ) => {
       alert(JSON.stringify(succ));
     });

@@ -10,40 +10,67 @@
 
 ## 技术栈
 
-- [typescript](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [rn 0.64](https://reactnative.dev/)
-- [react-navigation](https://reactnavigation.org/docs/getting-started)
-- [react-native-ui-lib](https://wix.github.io/react-native-ui-lib/getting-started/setup)
-- [hox](https://github.com/umijs/hox)
-- [ahooks](https://ahooks.gitee.io/zh-CN/hooks/async)
-- [use-immer](https://github.com/immerjs/use-immer)
-- [lodash-es](https://www.lodashjs.com/)
-- [dayjs](https://dayjs.gitee.io/zh-CN)
-- [react-native-iconfont-cli](https://github.com/iconfont-cli/react-native-iconfont-cli)
-- jest
-- detox
-- formik
+*   [typescript](https://www.typescriptlang.org/docs/handbook/intro.html)
+
+*   [rn 0.64](https://reactnative.dev/)
+
+*   [react-navigation](https://reactnavigation.org/docs/getting-started)
+
+*   [react-native-ui-lib](https://wix.github.io/react-native-ui-lib/getting-started/setup)
+
+*   [hox](https://github.com/umijs/hox)
+
+*   [ahooks](https://ahooks.gitee.io/zh-CN/hooks/async)
+
+*   [use-immer](https://github.com/immerjs/use-immer)
+
+*   [lodash-es](https://www.lodashjs.com/)
+
+*   [dayjs](https://dayjs.gitee.io/zh-CN)
+
+*   [react-native-iconfont-cli](https://github.com/iconfont-cli/react-native-iconfont-cli)
+
+*   jest
+
+*   detox
+
+*   formik
 
 ## 原生依赖
 
-- @react-native-community/blur
-- @react-native-community/datetimepicker
-- @react-native-community/masked-view
-- @react-native-community/netinfo
-- @react-native-picker/picker
-- react-native-bootsplash
-- react-native-config
-- react-native-device-info
-- react-native-exception-handler
-- react-native-fast-image
-- react-native-gesture-handler
-- react-native-linear-gradient
-- react-native-reanimated
-- react-native-restart
-- react-native-safe-area-context
-- react-native-screens
-- react-native-svg
-- react-native-mmkv
+*   @react-native-community/blur
+
+*   @react-native-community/datetimepicker
+
+*   @react-native-community/masked-view
+
+*   @react-native-community/netinfo
+
+*   @react-native-picker/picker
+
+*   react-native-bootsplash
+
+*   react-native-config
+
+*   react-native-device-info
+
+*   react-native-exception-handler
+
+*   react-native-fast-image
+
+*   react-native-gesture-handler
+
+*   react-native-linear-gradient
+
+*   react-native-reanimated
+
+*   react-native-restart
+
+*   react-native-safe-area-context
+
+*   react-native-screens
+
+*   react-native-svg
 
 ## 开发规范
 
@@ -51,8 +78,9 @@
 
 ## 测试
 
-- 单元测试使用jest + testing-library（具体教程 doing）
-- 集成测试使用detox（具体教程 doing）
+*   单元测试使用jest + testing-library（具体教程 doing）
+
+*   集成测试使用detox（具体教程 doing）
 
 ## 调试
 
@@ -60,8 +88,9 @@
 
 ## iconfont 生成
 
-1. 配置 [iconfont.cn](http://iconfont.cn/) 中项目生成 Symbol 链接到项目根目录下的 iconfont.json 文件中的 symbol_url
-2. 执行yarn icon 会生成所有图标组件到 src/assets/icons 目录下
+1.  配置 [iconfont.cn](http://iconfont.cn/) 中项目生成 Symbol 链接到项目根目录下的 iconfont.json 文件中的 symbol_url
+
+2.  执行yarn icon 会生成所有图标组件到 src/assets/icons 目录下
 
 ## bugly 配置
 
@@ -69,8 +98,9 @@
 
 ## 应用图标启动页图标替换
 
-1. 替换根目录 assets 文件夹下的 logo.png 和 bootsplash_logo.png 为自己的应用图标启动页图标
-2. 执行 yarn set
+1.  替换根目录 assets 文件夹下的 logo.png 和 bootsplash_logo.png 为自己的应用图标启动页图标
+
+2.  执行 yarn set
 
 背后使用的是下面两个库
 
@@ -102,7 +132,7 @@ openssl base64 < some_signing_key.jks | tr -d '\n' | tee some_signing_key.jks.ba
 
 **FIRTOKEN**
 
- [https://www.betaqr.com/](https://www.betaqr.com/) 上的 token，配置后打包完成会自动上传到该平台
+<https://www.betaqr.com/> 上的 token，配置后打包完成会自动上传到该平台
 
 ## 表单验证
 
@@ -112,27 +142,45 @@ openssl base64 < some_signing_key.jks | tr -d '\n' | tee some_signing_key.jks.ba
 
 **使用本项目**
 
-1. 搭建 RN 开发环境
-2. 克隆本项目
-3. 使用 npx react-native-rename "yourProjectName" -b "yourBundleId" 命令修改项目名称及包名
-4. 安装 npm 依赖，执行 yarn
-5. 安装 ios 依赖，执行 cd ios && pod install
-6. yarn ios 编译完成后即可开始开发
+1.  搭建 RN 开发环境
+
+2.  克隆本项目
+
+3.  使用 npx react-native-rename "yourProjectName" -b "yourBundleId" 命令修改项目名称及包名
+
+4.  安装 npm 依赖，执行 yarn
+
+5.  安装 ios 依赖，执行 cd ios && pod install
+
+6.  yarn ios 编译完成后即可开始开发
 
 **使用脚手架工具**
 
-1. npm i -g fast-tool
-2. 执行 fast init 
-3. 选择 rn 依次输入你的项目名包名等待下载及依赖安装完成
-4. 执行 yarn ios 编译完成后即可开始开发
+1.  npm i -g fast-tool
+
+2.  执行 fast init
+
+3.  选择 rn 依次输入你的项目名包名等待下载及依赖安装完成
+
+4.  执行 yarn ios 编译完成后即可开始开发
 
 ## 代码提交
 
 由于加了commitlint 和 eslint 如果你的代码不规范或者提交信息格式不符合规范都无法提交
 
-1. add 你要提交的代码
-2. 执行 yarn cz 命令进行 commit，按照提示信息输入
+1.  add 你要提交的代码
+
+2.  执行 yarn cz 命令进行 commit，按照提示信息输入
 
 ## 发布
 
 执行 yarn release -- -r 0.0.1 命令发布你的版本会自动修改版本号、生成 changelog、打tag。
+
+
+## issue
+
+error in m1 chip?
+
+step 1 brew install cocoapods
+step 2 sudo arch -x86_64 gem install ffi
+step 3 arch -x86_64 pod install

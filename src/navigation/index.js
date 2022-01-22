@@ -1,14 +1,12 @@
 import {
   CardStyleInterpolators,
-  HeaderStyleInterpolators,
   createStackNavigator,
 } from '@react-navigation/stack';
 import { Detail, Home } from '@/pages/home';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { Appearance } from 'react-native';
 import { Icon } from '@/components';
-import { Login } from '@/pages/auth';
+// import { Login } from '@/pages/auth';
 import { Mine } from '@/pages/mine';
 import { NavigationContainer } from '@react-navigation/native';
 import { Splash } from '@/pages/guide';
@@ -40,9 +38,10 @@ function TabScreen() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      tabBarOptions={{
+      screenOptions={{
         activeTintColor: '#e91e63',
         inactiveTintColor: '#888',
+        headerShown: false,
       }}
     >
       {Object.keys(TAB_SCREENS).map((name) => (
@@ -50,6 +49,7 @@ function TabScreen() {
           key={name}
           name={name}
           component={TAB_SCREENS[name].component}
+          screenOptions={{ headerShown: false, }}
           options={{
             title: TAB_SCREENS[name].title,
             ...TAB_SCREENS[name].options,
@@ -60,9 +60,9 @@ function TabScreen() {
   );
 }
 
-const AUTH_SCREENS = {
-  Login: { title: '登录', component: Login },
-};
+// const AUTH_SCREENS = {
+//   Login: { title: '登录', component: Login },
+// };
 
 const MAIN_SCREENS = {
   Splash: {
@@ -96,14 +96,15 @@ function MainNav() {
   return (
     <Stack.Navigator
       screenOptions={{
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        headerTintColor: '#e91e63',
+        headerTitleStyle: {
+          fontWeight: '500',
+          color: '#e91e63',
+          fontSize: 18,
+        },
         headerTitleAlign: 'center',
-        headerTruncatedBackTitle: true,
-        headerBackTitleVisible: false,
         gestureEnabled: true,
         gestureDirection: 'horizontal',
-        headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         headerBackImage: ({ tintColor }) => <Icon name="left" color={tintColor} size={24} />,
       }}
     >
@@ -115,7 +116,7 @@ function MainNav() {
           options={{ title: SCREEN[name].title }}
         />
       ))}
-  
+
     </Stack.Navigator>
   );
 }
@@ -157,7 +158,7 @@ function Navigation() {
     //   AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
     // }
     >
-      <Stack.Navigator mode="modal" headerMode="float" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false, presentation: 'modal', headerMode: 'float' }}>
         <Stack.Screen key={'main'} name={'main'} component={MainNav} />
         {/* {ModalNav()} */}
       </Stack.Navigator>
