@@ -175,3 +175,12 @@ openssl base64 < some_signing_key.jks | tr -d '\n' | tee some_signing_key.jks.ba
 ## 发布
 
 执行 yarn release -- -r 0.0.1 命令发布你的版本会自动修改版本号、生成 changelog、打tag。
+
+
+## issue
+
+error in m1 chip?
+
+step 1 brew install cocoapods
+step 2 sudo arch -x86_64 gem install ffi
+step 3 arch -x86_64 pod install
