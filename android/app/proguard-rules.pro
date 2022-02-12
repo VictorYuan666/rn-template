@@ -12,3 +12,7 @@
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
 -keep class com.swmansion.reanimated.** { *; }
+-keepclassmembers class com.android.installreferrer.api.** {
+  *;
+}
+-keep class com.google.android.gms.common.** {*;}
