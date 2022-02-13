@@ -1,13 +1,12 @@
-import { createModel } from 'hox';
-import { useSetState } from 'ahooks';
+import create from 'zustand';
 
-function useApp() {
-  const [app, setApp] = useSetState({ a: 1 });
-
-  return {
-    app,
-    setApp,
-  };
+interface BearState {
+  count: number;
+  increase: (by: number) => void;
 }
+const useStore = create<BearState>((set) => ({
+  count: 0,
+  increase: (by) => set((state) => ({ count: state.count + by })),
+}));
 
-export default createModel(useApp);
+export default useStore;

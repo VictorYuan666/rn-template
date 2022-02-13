@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   const { t, i18n } = useTranslation();
 
-  const { app } = useAppModel();
+  const { count, increase } = useAppModel();
 
   const addSibling = () => {
     axios.get('https://baidu.com').then((succ) => {
@@ -35,7 +35,8 @@ function Splash({ navigation }: StackScreenProps<ParamListBase>) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button onPress={addSibling} title="Add" />
-      <Text>{JSON.stringify(app)}</Text>
+      <Text>{count}</Text>
+      <Button onPress={() => increase(1)} title="increase" />
       <Text testID="signIn">语言：{t('lng')}</Text>
       <Button
         onPress={() => {
